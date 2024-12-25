@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  margin-left: 200px;
+  background: #5d9ab2 url("img_tree.png") no-repeat top left;
+}
+
+.center_div {
+  border: 1px solid gray;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  background-color: #d0f0f6;
+  text-align: left;
+  padding: 8px;
+}
+</style>
+</head>
+<body>
+
+<div class="center_div">
+  <h1>{{question}}</h1>
+  <p></p>
+</div>
+
+<form method = "post" action = "{% url "answer" %}">
+    {% csrf_token %}
+
+    <input type = "text" name = "score" required>
+    <input type = "submit" value = "Submit">
+</form>
+
+<div class="center_div">
+
+  <h1>{{message}}</h1>
+  <h1>{{score}}</h1>
+  <p></p>
+</div>
+
+
+<a href = "{% url 'home' %}" > NEW </a>
+</body>
+</html>
